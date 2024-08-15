@@ -8,15 +8,15 @@ clc; clear; close all;
 %%
 addpath('FFT\')
 addpath('Vector_Coding\')
-load('Device2.mat');
+
 %% Parameters
 % Simulation parameters
 Specs.k=1;                                                % Plot the lossmap curve fitting or not
 % Ohter para
 Specs               =   getSpecs(Specs);
 %% Input
-d1=0.99;
-d2=0.99;
+d1=0.79;
+d2=0.69;
 d3=0.15;
 fsw = Specs.fsw;
 Deg=90;
@@ -41,12 +41,14 @@ plot(waveform.t,waveform.Vai);
 hold on
 plot(waveform.t,waveform.Vbi);
 ylim([-240,240])
+legend('Primary side pulse','Secondary side pulse')
 grid on
 sf2=subplot(2,1,2);
 plot(waveform.t,waveform.iLrp);
 hold on
 plot(waveform.t,-waveform.iLrs)
 plot(waveform.t,-waveform.iLm);
+legend('primary side current','secondary side current','Magnitizing current')
 
 grid on
 movegui(fig1,[600 300]);
